@@ -14,7 +14,7 @@ mongoose.set('strictQuery', true)
 
 const connect = async () => {
 try {
-await mongoose.connect(process.env.DATABASE);
+await mongoose.connect(process.env.DATABASECLOUD);
 console.log("Connected to mongoDB.");
 } catch (error) {
 throw error;
@@ -34,3 +34,5 @@ app.use("/api/articles", articleRouter)
 app.listen(process.env.PORT, () => {
     connect();
 console.log(`Server is listening on port ${process.env.PORT}`); });
+
+module.exports = app;
